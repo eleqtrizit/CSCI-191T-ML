@@ -1,0 +1,25 @@
+# %%
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+print("From chapter 2 slides.\n")
+# np.arange (Start,end] i.e. inclusive, exclusive
+# in steps of 0.1
+ds = np.arange(0.1, 1, 0.1)
+print(ds, end='\n\n')
+
+e = 0.1
+
+
+def fN(e, d): return (4/e)*math.log(4/d)
+
+
+ns = np.array([fN(e, d) for d in ds])
+plt.title("N for epislon=0.1, delta=0.1..0.9")
+plt.plot(ds, ns, 'b-')
+plt.show()
+
+# %%
+print("The # of samples needed to get a error rate < 0.1 is: ",
+      fN(e, 0.1), end='\n\n')
